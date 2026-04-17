@@ -1,0 +1,311 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Fajri — Data Science Portfolio</title>
+
+<!-- Bootstrap -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+<!-- AOS -->
+<link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+<!-- Tailwind -->
+<script src="https://cdn.tailwindcss.com"></script>
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Space+Mono:wght@400;700&family=Syne:wght@400;600;800&display=swap" rel="stylesheet">
+
+<script>
+  tailwind.config = {
+    corePlugins: { preflight: false },
+    theme: {
+      extend: {
+        colors: { accent: '#38bdf8', accent2: '#818cf8' },
+        fontFamily: {
+          display: ['Syne','sans-serif'],
+          mono: ['Space Mono','monospace'],
+        }
+      }
+    }
+  }
+</script>
+
+<link rel="stylesheet" href="../main.css">
+</head>
+<body class="font-display" id="bodyEl">
+
+<!-- ===== LOADER ===== -->
+<div id="loader" class="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050810]">
+  <div class="text-4xl font-extrabold tracking-widest mb-4">Fajri<span class="text-accent">.</span></div>
+  <div class="w-48 h-[3px] bg-white/10 rounded-full overflow-hidden">
+    <div class="loader-bar h-full rounded-full bg-gradient-to-r from-accent to-accent2"></div>
+  </div>
+</div>
+
+<!-- ===== NAVBAR ===== -->
+<nav class="navbar navbar-expand-lg fixed-top glass-nav" id="mainNav">
+  <div class="container">
+    <a class="navbar-brand text-xl font-extrabold tracking-wide" href="#home">
+      Fajri<span class="text-accent">.</span>
+    </a>
+    <button class="navbar-toggler border-0 bg-transparent p-1" type="button"
+      data-bs-toggle="collapse" data-bs-target="#nav"
+      aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="bar"></span><span class="bar"></span><span class="bar"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="nav">
+      <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-1">
+        <li class="nav-item"><a class="nav-link font-mono text-sm" href="#home">Home</a></li>
+        <li class="nav-item"><a class="nav-link font-mono text-sm" href="#about">About</a></li>
+        <li class="nav-item"><a class="nav-link font-mono text-sm" href="#experience">Experience</a></li>
+        <li class="nav-item"><a class="nav-link font-mono text-sm" href="#project">Projects</a></li>
+        <li class="nav-item"><a class="nav-link font-mono text-sm" href="#gallery">Gallery</a></li>
+        <li class="nav-item"><a class="nav-link font-mono text-sm" href="#contact">Contact</a></li>
+      </ul>
+      <button class="theme-btn ms-3" onclick="toggleTheme()" id="themeBtn" title="Toggle theme">🌙</button>
+    </div>
+  </div>
+</nav>
+
+<!-- ===== HERO ===== -->
+<section id="home" class="hero flex items-center">
+  <canvas id="particleCanvas" class="absolute inset-0 w-full h-full opacity-40 pointer-events-none"></canvas>
+  <div class="container position-relative z-10">
+    <div data-aos="fade-up" data-aos-duration="900">
+      <p class="font-mono text-accent tracking-widest text-sm mb-3">👋 Hello, World!</p>
+      <h1 class="text-5xl md:text-7xl font-extrabold leading-tight mb-4">
+        I'm <span class="text-accent" id="typing"></span><span class="cursor">|</span>
+      </h1>
+      <p class="font-mono text-sm tracking-wide text-slate-400 mb-8">
+        Data Science Enthusiast &nbsp;·&nbsp; Machine Learning &nbsp;·&nbsp; Web Developer
+      </p>
+      <div class="flex flex-wrap gap-3">
+        <a href="#project" class="btn-main">Lihat Projects</a>
+        <a href="#contact" class="btn-outline-c">Hubungi Saya</a>
+      </div>
+    </div>
+    <div class="scroll-hint">scroll ↓</div>
+  </div>
+</section>
+
+<!-- ===== ABOUT ===== -->
+<section id="about" class="py-24">
+  <div class="container">
+    <div data-aos="fade-up" class="mb-10">
+      <span class="font-mono text-accent text-xs tracking-widest block mb-2">01 — About</span>
+      <h2 class="text-4xl font-extrabold">Tentang Saya</h2>
+    </div>
+    <div class="row align-items-center g-5">
+      <div class="col-lg-5" data-aos="fade-right">
+        <div class="glass-card rounded-2xl p-10 text-center">
+          <div class="avatar-box mx-auto mb-6">DS</div>
+          <div class="flex flex-wrap justify-center gap-2">
+            <span class="chip">🐍 Python</span>
+            <span class="chip">📊 Data Science</span>
+            <span class="chip">🤖 ML</span>
+            <span class="chip">🗄️ SQL</span>
+            <span class="chip">🌐 Web Dev</span>
+          </div>
+        </div>
+      </div>
+      <div class="col-lg-7" data-aos="fade-left">
+        <p class="text-slate-400 leading-relaxed mb-3">
+          Saya adalah mahasiswa <strong class="text-white">Ilmu Komputer</strong> yang fokus pada
+          <strong class="text-white">Data Science</strong> dan Machine Learning. Senang mengolah data menjadi insight yang berguna dan visualisasi yang menarik.
+        </p>
+        <p class="text-slate-400 leading-relaxed mb-6">
+          Selain itu, saya aktif sebagai <strong class="text-white">Web Developer</strong> yang membangun aplikasi web modern dan responsif.
+        </p>
+
+        <p class="font-mono text-accent text-xs tracking-widest mb-4">Tech Skills</p>
+        <div class="space-y-3 mb-6">
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span>Python</span><span class="text-accent">85%</span></div>
+            <div class="progress"><div class="progress-bar" data-width="85"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span>Data Analysis</span><span class="text-accent">80%</span></div>
+            <div class="progress"><div class="progress-bar bar-green" data-width="80"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span>Machine Learning</span><span class="text-accent">75%</span></div>
+            <div class="progress"><div class="progress-bar bar-yellow" data-width="75"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span>SQL / Databases</span><span class="text-accent">70%</span></div>
+            <div class="progress"><div class="progress-bar bar-blue" data-width="70"></div></div>
+          </div>
+          <div>
+            <div class="flex justify-between text-sm mb-1"><span>Backend Development</span><span class="text-accent">78%</span></div>
+            <div class="progress"><div class="progress-bar bar-pink" data-width="78"></div></div>
+          </div>
+        </div>
+
+        <p class="font-mono text-accent text-xs tracking-widest mb-3">Tools & Libraries</p>
+        <div class="flex flex-wrap gap-2">
+          <span class="tool-tag">Pandas</span><span class="tool-tag">NumPy</span>
+          <span class="tool-tag">Scikit-learn</span><span class="tool-tag">Matplotlib</span>
+          <span class="tool-tag">Seaborn</span><span class="tool-tag">MySQL</span>
+          <span class="tool-tag">Jupyter</span><span class="tool-tag">Git</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== EXPERIENCE ===== -->
+<section id="experience" class="py-24 section-alt">
+  <div class="container">
+    <div data-aos="fade-up" class="mb-10">
+      <span class="font-mono text-accent text-xs tracking-widest block mb-2">02 — Experience</span>
+      <h2 class="text-4xl font-extrabold">Pengalaman</h2>
+    </div>
+    <div class="timeline">
+      <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-dot"></div>
+        <div class="glass-card rounded-2xl p-6">
+          <span class="font-mono text-accent text-xs tracking-widest block mb-2">2024</span>
+          <h5 class="font-bold text-lg mb-2">Data Analysis Project</h5>
+          <p class="text-slate-400 text-sm mb-3">Menganalisis dataset penjualan untuk menemukan pola dan insight menggunakan Python, Pandas, dan Matplotlib.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tl-tag">Python</span><span class="tl-tag">Pandas</span><span class="tl-tag">Matplotlib</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-left">
+        <div class="timeline-dot"></div>
+        <div class="glass-card rounded-2xl p-6">
+          <span class="font-mono text-accent text-xs tracking-widest block mb-2">2024</span>
+          <h5 class="font-bold text-lg mb-2">Machine Learning Model</h5>
+          <p class="text-slate-400 text-sm mb-3">Membangun model prediksi menggunakan algoritma regresi dan klasifikasi dengan Scikit-learn.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tl-tag">Scikit-learn</span><span class="tl-tag">Regression</span><span class="tl-tag">Classification</span>
+          </div>
+        </div>
+      </div>
+      <div class="timeline-item" data-aos="fade-right">
+        <div class="timeline-dot"></div>
+        <div class="glass-card rounded-2xl p-6">
+          <span class="font-mono text-accent text-xs tracking-widest block mb-2">2025</span>
+          <h5 class="font-bold text-lg mb-2">Database Project</h5>
+          <p class="text-slate-400 text-sm mb-3">Merancang database menggunakan SQL serta melakukan query optimization pada dataset skala besar.</p>
+          <div class="flex flex-wrap gap-2">
+            <span class="tl-tag">MySQL</span><span class="tl-tag">Query Optimization</span><span class="tl-tag">ERD</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PROJECTS ===== -->
+<section id="project" class="py-24">
+  <div class="container">
+    <div data-aos="fade-up" class="mb-10">
+      <span class="font-mono text-accent text-xs tracking-widest block mb-2">03 — Projects</span>
+      <h2 class="text-4xl font-extrabold">Projects</h2>
+    </div>
+    <div class="row g-4">
+      <div class="col-md-4" data-aos="zoom-in">
+        <div class="glass-card project-card rounded-2xl p-7 h-100 flex flex-col">
+          <div class="text-4xl mb-4">📈</div>
+          <h5 class="font-bold text-lg mb-2">Sales Prediction</h5>
+          <p class="text-slate-400 text-sm flex-grow mb-4">Model prediksi penjualan menggunakan Machine Learning dengan akurasi tinggi.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tool-tag">Python</span><span class="tool-tag">Scikit-learn</span><span class="tool-tag">Pandas</span>
+          </div>
+          <a href="https://github.com/muhfajrigs-glitch/Data-Science/blob/main/sales_prediction.ipynb" class="font-mono text-accent text-sm hover:tracking-wider transition-all">View Project →</a>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="100">
+        <div class="glass-card project-card rounded-2xl p-7 h-100 flex flex-col">
+          <div class="text-4xl mb-4">📊</div>
+          <h5 class="font-bold text-lg mb-2">Data Visualization</h5>
+          <p class="text-slate-400 text-sm flex-grow mb-4">Dashboard visualisasi data interaktif dengan insight yang mudah dibaca.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tool-tag">Matplotlib</span><span class="tool-tag">Seaborn</span><span class="tool-tag">Plotly</span>
+          </div>
+          <a href="https://github.com/muhfajrigs-glitch/Data-Science/blob/main/data_visualization.ipynb" class="font-mono text-accent text-sm hover:tracking-wider transition-all">View Project →</a>
+        </div>
+      </div>
+      <div class="col-md-4" data-aos="zoom-in" data-aos-delay="200">
+        <div class="glass-card project-card rounded-2xl p-7 h-100 flex flex-col">
+          <div class="text-4xl mb-4">🗄️</div>
+          <h5 class="font-bold text-lg mb-2">SQL Optimization</h5>
+          <p class="text-slate-400 text-sm flex-grow mb-4">Optimasi query database skala besar dengan peningkatan performa signifikan.</p>
+          <div class="flex flex-wrap gap-2 mb-4">
+            <span class="tool-tag">MySQL</span><span class="tool-tag">Query Tuning</span><span class="tool-tag">Indexing</span>
+          </div>
+          <a href="#" class="font-mono text-accent text-sm hover:tracking-wider transition-all">View Project →</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== GALLERY ===== -->
+<section id="gallery" class="py-24 section-alt">
+  <div class="container">
+    <div data-aos="fade-up" class="mb-10">
+      <span class="font-mono text-accent text-xs tracking-widest block mb-2">04 — Gallery</span>
+      <h2 class="text-4xl font-extrabold">Gallery</h2>
+    </div>
+    <div class="row g-3" id="galleryContainer"></div>
+  </div>
+</section>
+
+
+<!-- ===== CONTACT ===== -->
+<section id="contact" class="py-24">
+  <div class="container">
+    <div data-aos="fade-up" class="mb-10">
+      <span class="font-mono text-accent text-xs tracking-widest block mb-2">05 — Contact</span>
+      <h2 class="text-4xl font-extrabold">Hubungi Saya</h2>
+    </div>
+    <div class="row justify-content-center">
+      <div class="col-lg-7" data-aos="fade-up">
+        <div class="glass-card rounded-2xl p-10">
+          <p class="text-slate-400 text-center leading-relaxed mb-8">Ada project menarik atau ingin berkolaborasi? Let's connect! 🚀</p>
+          <div class="flex flex-col gap-4">
+            <a href="mailto:muhfajri.gs@email.com" class="contact-item">
+              <span class="text-2xl">📧</span>
+              <div><strong class="block text-sm">Email</strong><small class="font-mono text-slate-400 text-xs">muhfajri@email.com</small></div>
+            </a>
+            <a href="https://github.com/muhfajrigs-glitch" target="_blank" class="contact-item">
+              <span class="text-2xl">💻</span>
+              <div><strong class="block text-sm">GitHub</strong><small class="font-mono text-slate-400 text-xs">github.com/muhfajrigs-glitch</small></div>
+            </a>
+            <a href="https://www.instagram.com/jrriii._" target="_blank" class="contact-item">
+              <span class="text-2xl">🔗</span>
+              <div><strong class="block text-sm">Instagram</strong><small class="font-mono text-slate-400 text-xs">instagram.com/jrriii._</small></div>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer class="py-8 text-center section-alt" style="border-top:1px solid rgba(255,255,255,0.08)">
+  <p class="text-slate-400 text-sm">© 2026 <span class="text-accent font-bold">Fajri</span> — Data Science Portfolio</p>
+  <p class="font-mono text-slate-500 text-xs mt-2">Built with ❤️ using HTML, CSS & JavaScript</p>
+</footer>
+
+<!-- ===== MODAL ===== -->
+<div class="modal fade" id="imageModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modal-content bg-transparent border-0">
+      <div class="glass-card rounded-2xl p-3 position-relative">
+        <button type="button" class="modal-close-btn" data-bs-dismiss="modal" aria-label="Close">✕</button>
+        <img id="modalImg" class="w-100 rounded-xl" alt="Gallery image">
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+<script src="../main.js"></script>
+</body>
+</html>
