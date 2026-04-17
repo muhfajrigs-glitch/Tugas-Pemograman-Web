@@ -368,3 +368,14 @@ body.dark .dm-thumb  { left: 18px; background: #fff; }
   .card-head  { padding: 1.5rem 1.25rem 1.25rem; }
   .field-row  { grid-template-columns: 1fr; }
 }
+
+body.dark .field select {
+  background: var(--surface-2);
+  color: var(--text);
+}
+
+
+body.dark .field select option {
+  background: #1c1c21; /* gelap */
+  color: #f0f0f4;      /* terang */
+}
